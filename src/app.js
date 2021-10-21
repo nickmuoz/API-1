@@ -28,5 +28,5 @@ app.get('/',(req,res)=>{
 app.post('/app', (req,res)=>{res.send('Esta es un request post')})
 //inicio del server
 app.listen(app.get('port'),()=>{
-    console.log(`escuchando en puerto ${port}`
+    console.log(`escuchando en puerto ${app.get('port')}`
     )});
