@@ -5,9 +5,10 @@ const productRoutes=require('./routes/product.routes');
 const authRoutes=require('./routes/auth.routes');
 // const { db } = require('./models/products')
 const app = express();
-const port = 3000
+//const port = 3000
 //configuraciones
 app.use(morgan('dev'));
+app.set('port',process.env.PORT||3000)
 
 mongoose.connect('mongodb+srv://admin:Mvpemq100v@cluster0.1fihi.mongodb.net/Cluster0?retryWrites=true&w=majority')
 .then(db => console.log('conectado a la DB'))
@@ -26,6 +27,6 @@ app.get('/',(req,res)=>{
 // })
 app.post('/app', (req,res)=>{res.send('Esta es un request post')})
 //inicio del server
-app.listen(port,()=>{
+app.listen(app.get('port'),()=>{
     console.log(`escuchando en puerto ${port}`
     )});
