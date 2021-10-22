@@ -33,12 +33,12 @@ router.delete('/:id', async (req, res) => {
     res.status(200).json({product})
 })
 
-//router.post('/add', async (req, res)=>{
-//     const product = new Product(req.body)
-//     await product.save()
-//     res.send(product)
-//     // res.send('respuesta post router productos')
-// })
+router.post('/add', async (req, res)=>{
+    const product = new Product(req.body)
+    await product.save()
+    res.send(product)
+    // res.send('respuesta post router productos')
+})
 
 
 module.exports = router
