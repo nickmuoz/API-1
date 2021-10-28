@@ -3,15 +3,18 @@ const morgan = require('morgan')
 const mongoose = require('mongoose');
 const productRoutes=require('./routes/product.routes');
 const authRoutes=require('./routes/auth.routes');
-const { db } = require('./models/products')
+// const { db } = require('./models/products')
 const app = express();
+const cors = require('cors')
+
 //const port = 3000
 //configuraciones
 app.use(morgan('dev'));
 app.set('port',process.env.PORT||3000)
+app.use(cors())
 
 // mongoose.connect('mongodb://localhost:27017')
-mongoose.connect('mongodb+srv://admin:Mvpemq100v@cluster0.1fihi.mongodb.net/Cluster0?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://admin:nicolas1981@cluster0.fguc5.mongodb.net/Cluster0?retryWrites=true&w=majority')
 .then(db => console.log('conectado a la DB'))
 .catch(err => console.error(err))
 app.use(express.urlencoded({extended: false}))
