@@ -15,7 +15,7 @@ router.post('/', async (req, res)=>{
 })
 
 router.post('/edit-value', async (req, res) => {
-    let product = await Product.findById(req.body.product_id)
+    let product = await Product.findById(req.body._id)
     product.value =req.body.value
     await product.save()
     res.status(200).json({product})
