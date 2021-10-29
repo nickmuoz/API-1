@@ -49,9 +49,10 @@ const authService = {
         }
 
     },
+
     signToken: async function(id){
      //esta clave debe ser segura        
-        return jwt.sign((id), 'mvpemq100v', {
+        return jwt.sign({id}, 'mvpemq100v', {
             expiresIn:60 * 60 * 24
         })
     }
