@@ -3,7 +3,7 @@ const morgan = require('morgan')
 const mongoose = require('mongoose');
 const productRoutes=require('./routes/product.routes');
 const authRoutes=require('./routes/auth.routes');
-// const { db } = require('./models/products')
+const customerRoutes = require('./routes/customer.routes');
 const app = express();
 const cors = require('cors')
 
@@ -24,13 +24,14 @@ app.use(express.urlencoded({extended: false}))
 //rutas
 app.use('/products', productRoutes)
 app.use('/auth', authRoutes)
+app.use('/customers', customerRoutes)
 
+//api method get
 app.get('/',(req,res)=>{
-    res.send('Hello tripulante Nicolas')
+    res.send('On line')
 })
 
-// app.get('/',(req,res)=>{res.send('Hello juan')
-// })
+//api method post
 app.post('/app', (req,res)=>{res.send('Esta es un request post')})
 
 //inicio del server
