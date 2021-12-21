@@ -30,6 +30,13 @@ router.post('/edit-description', async (req, res) => {
     await product.save()
     res.status(200).json({product})
 })
+//Edit Name
+router.post('/edit-name', async (req, res) => {
+    let product = await Product.findById(req.body.id)
+    product.name =req.body.name
+    await product.save()
+    res.status(200).json({product})
+})
 //get product by id
 router.get('/id', async (req,res) =>{
     const product = await Product.findById(req.body.id)
