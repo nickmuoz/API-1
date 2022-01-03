@@ -12,7 +12,8 @@ const authService = {
                 userExists.password = ''
                 return {
                     code:200,
-                    token: token
+                    token: token,
+                    email: email,
                 }
             }else{
                 return {
