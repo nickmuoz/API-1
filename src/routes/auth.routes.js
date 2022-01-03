@@ -29,7 +29,7 @@ router.post('/register', async (req,res)=>{
         res.send(error)
     }
 });
-//users
+//get users
 router.get('/users', async (req,res)=>{
     try{
         const users = await User.find()
