@@ -42,6 +42,11 @@ router.get('/id', async (req,res) =>{
     const product = await Product.findById(req.body.id)
     res.send(product)
 })
+//Get product by category
+router.get ('/category', async (req,res) =>{
+    const product = await Product.find({category:req.body.category})
+    res.send(product)
+});
 
 // delete a product by id
 router.delete('/:id', async (req, res) => {

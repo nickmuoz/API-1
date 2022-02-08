@@ -59,4 +59,4 @@ const authService = {
     }
 }
 
-module.exports=authService
+module.exports = authService

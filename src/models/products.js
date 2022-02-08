@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
     //atributos---->map con db
+    category: String,
     name: String,
     value:Number,
     description:String,
