@@ -47,7 +47,11 @@ router.get ('/category', async (req,res) =>{
     const product = await Product.find({category:req.body.category})
     res.send(product)
 });
-
+//Get product by Brand
+router.get ('/brand', async (req,res) =>{
+    const product = await Product.find({brand:req.body.brand})
+    res.send(product)
+});
 // delete a product by id
 router.delete('/:id', async (req, res) => {
     //const { id } = req.params;
@@ -55,12 +59,18 @@ router.delete('/:id', async (req, res) => {
     let product = await Product.findByIdAndRemove( { _id: id } )
     res.status(200).json({product})
 })
+// delete a product by reference
+router.delete('/:reference', async (req,res) =>{
+    const reference = req.params.reference;
+    let product = await Product.findOneAndRemove( { reference: reference } )
+    res.status(200).json({product})
+})
 //add a product to cart
 router.post('/add', async (req, res)=>{
     const product = new Product(req.body)
     await product.save()
     res.send(product)
-    // res.send('respuesta post router productos')
+    res.send('Producto agregado al correctamente')
 })
 
 
