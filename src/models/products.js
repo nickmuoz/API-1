@@ -9,7 +9,7 @@ const productSchema = new Schema({
     reference: String,
     value:Number,
     description:String,
-    existence:Boolean,
+    avaliability:Boolean,
     serialNumber:Number,
     quantity:Number,
 });
