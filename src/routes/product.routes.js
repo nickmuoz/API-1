@@ -70,7 +70,7 @@ router.post('/add', async (req, res)=>{
     const product = new Product(req.body)
     await product.save()
     res.send(product)
-    res.send('Producto agregado al correctamente')
+    //res.send('Producto agregado al correctamente')
 })
 
 
