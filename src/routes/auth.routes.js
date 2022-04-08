@@ -39,4 +39,25 @@ router.get('/users', async (req,res)=>{
     }
 });
 
+//delete user
+router.delete('/:id', async (req,res)=>{
+    try{
+        const id = req.params.id 
+        let user = await User.findByIdAndRemove({_id: id })
+        res.status(200).json({user})
+    }catch(error){
+        res.send(error)
+    }
+});
+//delete user by email
+router.delete('/email', async (req,res)=>{
+    try{
+        const email = req.params.email 
+        let user = await User.findOneAndDelete({email: email })
+        res.status(200).json({user})
+    }catch(error){
+        res.send(error)
+    }
+})
+
 module.exports = router

@@ -60,10 +60,14 @@ router.delete('/:id', async (req, res) => {
     res.status(200).json({product})
 })
 // delete a product by reference
-router.delete('/:reference', async (req,res) =>{
-    const reference = req.params.reference;
-    let product = await Product.findOneAndRemove( { reference: reference } )
+router.delete('/:description', async (req,res) =>{
+    try{
+    const description = req.body.description;
+    let product = await Product.findByIdAndRemove({ description: description } )
     res.status(200).json({product})
+    }catch(error){
+        res.send(error)
+    }
 })
 //add a product to cart
 router.post('/add', async (req, res)=>{
