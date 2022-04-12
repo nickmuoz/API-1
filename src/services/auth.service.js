@@ -13,8 +13,7 @@ const authService = {
                 return {
                     code:200,
                     token: token,
-                    email: email,
-                    name: name
+                    email: email
                 }
             }else{
                 return {
