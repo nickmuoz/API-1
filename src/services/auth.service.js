@@ -10,10 +10,12 @@ const authService = {
             if (await bcrypt.compare(password,userExists.password).then(res=>res)){
                 const token = await this.signToken(userExists.id)
                 userExists.password = ''
+                const name = await userExists.name
                 return {
                     code:200,
                     token: token,
-                    email: email
+                    email: email,
+                    name: name
                 }
             }else{
                 return {

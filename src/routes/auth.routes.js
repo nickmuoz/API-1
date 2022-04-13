@@ -50,7 +50,7 @@ router.delete('/:id', async (req,res)=>{
     }
 });
 //delete user by email
-router.delete('/email', async (req,res)=>{
+router.delete('/:email', async (req,res)=>{
     try{
         const email = req.params.email 
         let user = await User.findOneAndDelete({email: email })
