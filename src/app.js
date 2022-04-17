@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const productRoutes=require('./routes/product.routes');
 const authRoutes=require('./routes/auth.routes');
 const customerRoutes = require('./routes/customer.routes');
+const serviceRoutes = require('./routes/service.routes');
 const app = express();
 const cors = require('cors')
 
@@ -25,6 +26,7 @@ app.use(express.urlencoded({extended: false}))
 app.use('/products', productRoutes)
 app.use('/auth', authRoutes)
 app.use('/customers', customerRoutes)
+app.use('/service', serviceRoutes)
 
 //api method get
 app.get('/',(req,res)=>{
