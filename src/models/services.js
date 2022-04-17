@@ -13,7 +13,7 @@ const serviceSchema =  new Schema({
         require:true,
     },
     birthday: Date,
-    descripction: String,
+    description: String,
 });
 
 module.exports = mongoose.model('service', serviceSchema);
