@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const serviceSchema =  new Schema({
-    date: Date,
+    technician: String,
+    created: {type:Date},
     customer: String,
     phone: Number,
     address:String,
