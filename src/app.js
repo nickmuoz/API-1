@@ -7,12 +7,17 @@ const customerRoutes = require('./routes/customer.routes');
 const serviceRoutes = require('./routes/service.routes');
 const app = express();
 const cors = require('cors')
+const bodyParser = require('body-parser');
+const sendMail = require('./routes/SendMail.routes');
 
 //const port = 3000
 //configuraciones
 app.use(morgan('dev'));
 app.set('port',process.env.PORT||3000)
 app.use(cors())
+//lineas nuevas pendiente terminar node mailer 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
 
 // mongoose.connect('mongodb://localhost:27017')
 mongoose.connect('mongodb+srv://admin:nicolas1981@cluster0.fguc5.mongodb.net/Cluster0?retryWrites=true&w=majority')
@@ -27,6 +32,7 @@ app.use('/products', productRoutes)
 app.use('/auth', authRoutes)
 app.use('/customers', customerRoutes)
 app.use('/service', serviceRoutes)
+app.use('/mail', sendMail)
 
 //api method get
 app.get('/',(req,res)=>{
