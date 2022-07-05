@@ -42,6 +42,12 @@ router.get('/id', async (req,res) =>{
     const product = await Product.findById(req.body.id)
     res.send(product)
 })
+//Get Product by id with path
+
+// router.get('/id', async (req,res) =>{
+//     const product = await Product.findById(req.params.id)
+//     res.send(product)
+// })
 //Get product by category
 router.get ('/category', async (req,res) =>{
     const product = await Product.find({category:req.body.category})

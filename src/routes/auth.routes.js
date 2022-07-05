@@ -39,6 +39,17 @@ router.get('/users', async (req,res)=>{
     }
 });
 
+//get user by id
+router.get('/:id', async (req,res)=>{
+    try{
+        const id = req.params.id
+        let user = await User.findById({_id: id})
+        res.status(200).json({user})
+    }catch(error){
+        res.send(error)
+    }
+});
+
 //delete user
 router.delete('/:id', async (req,res)=>{
     try{

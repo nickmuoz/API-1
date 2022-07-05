@@ -10,8 +10,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser');
 const sendMail = require('./routes/SendMail.routes');
 
-//const port = 3000
-//configuraciones
+
 app.use(morgan('dev'));
 app.set('port',process.env.PORT||3000)
 app.use(cors())
