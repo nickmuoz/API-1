@@ -38,7 +38,7 @@ const authService = {
         }catch (error){
             return {
                 code:400,
-                erro:true,
+                error:true,
                 msg:'Data error'
             }
         }

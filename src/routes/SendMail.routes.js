@@ -30,18 +30,18 @@ router.post ('/SendMail', async (req, res) => {
         subject:req.body.asunto,
         text:req.body.mensaje,
     }
-    transporter.sendMail(mailOptions, (err, info) => {
-        if(err){
-            console.log(err)
+    transporter.sendMail(mailOptions, (error, info) => {
+        if(error){
+            console.log(error)
         }
         else{
-            console.log("Email enviado", info.mensaje)
-            console.log("url de Mensaje", nodemailer.getTestMessageUrl(info))
+            console.log("Email enviado")
+            console.log("url de Mensaje")
         }
         transporter.close();
     })
     const from = req.body.email
-    res.send('Esta es un request post de sendmail ' + from)
+    res.send('Mail enviado a' + from)
     
     
         
