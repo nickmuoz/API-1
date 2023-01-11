@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
 // mongoose.connect('mongodb://localhost:27017')
-mongoose.connect('mongodb+srv://admin:nicolas1981@cluster0.fguc5.mongodb.net/Cluster0?retryWrites=true&w=majority')
+mongoose.connect('mongourlconnection')
 .then(db => console.log('conectado a la DB'))
 .catch(err => console.error(err))
 app.use(express.urlencoded({extended: false}))
